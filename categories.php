@@ -1,23 +1,16 @@
 <?php
 session_start();
 require_once('includes/config.php');
-
-//admin udah login belum? klo belum suruh login!!!
-if(!isset($_SESSION['username'])){
- header("location:masuk.php");
-}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<title><?php echo $title; ?></title>
-	<link href="css/main.css" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <title><?php echo $title; ?></title>
+  <link href="css/main.css" rel="stylesheet"/>
 
-	
+  
 </head>
 
 <body>
@@ -44,9 +37,9 @@ if(!isset($_SESSION['username'])){
     
     <!-- Left navigation -->
     <ul id="menu" class="nav">
-        <li class="dash"><a href="index.php" title="" class="active"><span>Dashboard</span></a></li>
-        <li class="forms"><a href="post-ebook.php" title="" class="exp"><span>Post New Ebook</span></a>
-        <li class="widgets"><a href="categories.php" title="" class=""><span>Category</span></a>
+        <li class="dash"><a href="index.php" title="" class=""><span>Dashboard</span></a></li>
+        <li class="forms"><a href="post-ebook.php" title="" class=""><span>Post New Ebook</span></a>
+        <li class="widgets"><a href="categories.php" title="" class="active"><span>Category</span></a>
         </li>
     </ul>
 </div>
@@ -72,7 +65,7 @@ if(!isset($_SESSION['username'])){
     <!-- Responsive header -->
     <div class="resp">
         <div class="responsive-header">
-            <a href="index.html" title=""><img src="images/logo_dark.png" alt="" /></a>
+            <a href="index.php" title=""><img src="images/logo_dark.png" alt="" /></a>
         </div>
         
         
@@ -80,104 +73,48 @@ if(!isset($_SESSION['username'])){
         
     </div>
     
-    <!-- Title area -->
-    <div class="intro-area">
-        <div class="wrapper">
-            <div class="page-title">
-                <h5>Dashboard</h5>
-                <span>Show all the ebooks list.</span>
-            </div>
-            
-            <div class="clear"></div>
-        </div>
-    </div>  
+  
     <!-- Main content wrapper -->
     <div class="wrapper">
-        <!-- Note -->
-        <div class="note-box note-information hide-me">
-            <p><strong>INFORMATION: </strong>This is a BETA version of Bookubook.</p>
-        </div>
-        <!-- Widgets -->
-        <!-- <div class="widgets">
+        <div class="clear"></div>
+            <br>
+        
+     <br/>
+     
+     <form name="new-cat" action="?new?category" method="post" class="form">
+      <fieldset>
+      <div class="widget">
+        <div class="title"><img src="images/icons/light/list.png" alt="" class="title-icon" /><h6>Add Category</h6></div>
+     <?php
+     if(isset($_POST['newcat'])){
+     
 
-        	< 2 columns widgets -->
-            <!-- <div class="one-half">            
-                < Search 
-                <div class="search-widget">
-                    <form action="">
-                        <input type="text" name="search" placeholder="What are you looking for ?" />
-                        <input type="submit" name="find" value="" />
-                    </form>
-                </div> -->            	
-           <!-- </div>
-            <div class="clear"></div>
-        </div> -->
-        <!-- Media table -->
-        <div class="widget">
-            <div class="title"><span class="title-icon"></span><h6>Ebooks List</h6></div>
-            <table cellpadding="0" cellspacing="0" width="100%" class="standard-table medium-table" id="check-all-box">
-                <thead>
-                    <tr>
-                        
-                        
-                        <td><div>Title<span></span></div></td>
-                        <td><div>Timestamp<span></span></div></td>
-                        <td>Category</td>
-                        <td>Uploader</td>
-                        <td>Actions</td>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <td colspan="6">
-                            
-                            <div class="table-pagination">
-                                <ul>
-                                    <li class="prev"><a href="#" title=""></a></li>
-                                    <li><a href="#" title="">1</a></li>
-                                    <li><a href="#" title="">2</a></li>
-                                    <li><a href="#" title="">3</a></li>
-                                    <li><a href="#" title="">4</a></li>
-                                    <li><a href="#" title="">5</a></li>
-                                    <li><a href="#" title="">6</a></li>
-                                    <li>...</li>
-                                    <li><a href="#" title="">50</a></li>
-                                    <li class="next"><a href="#" title=""></a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <?php 
-                    $sql = "select * from `ebook` order by created DESC "; 
-                         $result = $connect->query($sql) or die (mysqli_error()); 
-                         while($row = mysqli_fetch_array($result))
-                         {
-       
-                         echo "<tr>";
-                         echo "<td>";
-                         echo $row['title'];
-                         echo "</td>";
-                         echo "<td align='center'>";
-                         echo $row['created'];
-                         echo "</td>";
-                         echo "<td align='center'>";
-                         echo $row['kategori'];
-                         echo "</td>";
-                         echo "<td align='center'>";
-                         echo $row['author'];
-                         echo "</td>";
-                         echo "<td class='action-buttons'>";
-                         echo "<a href='edit.php?id=". $row['id'] ."' title='Update Link' class='tipS'><img src='images/icons/edit.png' alt='' /></a>
-                               <a href='del.php?id=". $row['id'] ."' title='Remove' class='tipS'><img src='images/icons/remove.png' alt='' /></a>
-                              ";
-                         echo "</td>";
-                         echo "</tr>";   
-                         } 
-                    ?>
-                </tbody>
-            </table>
+     //set var
+     $catname = $_POST['catname'];
+     //pembatas aja
+     $sql = $connect->query("SELECT * FROM `categories` WHERE cat_name='$catname'");
+     $row = mysqli_num_rows($sql);
+      if($row == 1){
+       echo 'Kategorinya sudah ada!';
+      } else {
+     $result = $connect->query("INSERT INTO categories(cat_name) VALUES('".$catname."')");
+    } echo 'Kategori berhasil di buat!';
+    
+     } 
+     ?>
+     <div class="form-row">
+      <label>Category Name</label>
+      <div class="form-right"><input type="text" name="catname" value="" placeholder="Category Name"></div>
+      <div class="clear"></div>
+      </div> 
+    <div class="form-row">
+       <div class="form-right"> <input type="submit" name="newcat" class="button small" value="Submit"></div>
+       <div class="clear"></div>
+       </div>
+        </div>   
+      </fieldset>
+     </form>
+    
         </div>
     
     </div>
