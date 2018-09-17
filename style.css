@@ -1,0 +1,273 @@
+/*
+Theme name : bookubook
+author : nyammug
+design ver : 2
+----------------------------------
+CHANGE LOG
+----------------------------------
+>>Ver 2 --------------------------
+-now using @import
+-new menu colour
+-new menu transition
+-new colour
+-new fullside transition 
+-added pagination button style
+----------------------------------
+>>Ver 1 --------------------------
+-creepy colour
+-hide and seek dlbutton system
+----------------------------------
+*/
+
+/*lets import something */
+@import url(http://fonts.googleapis.com/css?family=News+Cycle);
+@import url(http://fonts.googleapis.com/css?family=Prosto+One&effect=distressed-wood);
+@import url(http://fonts.googleapis.com/css?family=Cantora+One);
+
+/* a set*/
+a:link{
+	text-decoration: none;
+	color:black;
+}
+a:visited{
+	text-decoration: none;
+	color:black;
+}
+/* basic set */
+body {
+	background-color: #CECECE;
+	text-align:left;
+	margin:0;
+	padding:0;
+}
+
+/* wrapper */
+.wrapper {
+	background-color:#2b2f30;
+	border: 0px solid #88CBCC;
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+	width:1200px;
+	height:750px auto;
+	clear:both;
+	display:table;
+}
+
+.wrapper .header {
+	text-align:left;
+	background-color:#0fa1e3;
+	padding:5px;
+	margin:0px;
+	width:auto;
+	height:80px;
+	font-family: 'Verdana', serif;
+    font-size: 30px;
+}
+small {
+	font-family: 'Arial', serif;
+    font-size: 14px;
+}
+big {
+	font-family: 'Arial', serif;
+    font-size: 24px;
+    color: #404040;
+}
+#big {
+	color:white;
+}
+.wrapper .fullbody {
+	background-color:#ffffff;
+	margin: 2px;
+	margin-bottom: 10px;
+	padding: 5px;
+	width:900px;
+	height:auto;
+	float:right;
+	border-radius: 0px;
+	font-family: 'Arial', serif;
+    font-size: 14px;
+    display:table-cell;
+}
+.wrapper .insidebody {
+	background-color:#ffffff;
+	margin: 2px;
+	padding: 5px;
+	width:885px;
+	height:auto;
+	float:right;
+	border-radius: 0px;
+	font-family: 'News Cycle', serif;
+    font-size: 16px;
+}
+.wrapper .fullside {
+	background-color:#0fa1e3;
+	margin:2px;
+	padding: 5px;
+	width:270px;
+	height:auto;
+	float:left;
+	border-radius: 0px;
+	font-family: 'News Cycle', serif;
+    font-size: 14px;
+    color:white;
+    transition: all 2s ease;
+    display: table-cell;
+}
+.wrapper .fullside:hover {
+	background-color:gray;
+	box-shadow: 0px 0px 5px 0px white;
+}
+.fullpost {
+	position:relative;
+}
+/*footer*/
+footer {
+ height:50px;
+ text-align:center;
+ background-color:#2b2f30;
+ clear:both;
+ margin-left: 0px;
+ margin-right: 0px;
+ padding: 5px;
+ color: gray;
+ font-family: 'Arial', serif;
+ font-size: 11px;
+}
+/*horizontal menu aka mr.MENU*/
+.mr-menu {
+	text-align:left;
+	background-color:#2b2f30;
+	padding:10px;
+	margin:0px;
+	width:auto;
+	height:30px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+.mr-menu ul{
+	height: auto;
+    padding: 5px;
+    margin: 0px;
+
+}
+.mr-menu li { 
+display: inline; 
+padding: 5px; 
+}
+
+.mr-menu a {
+    text-decoration: none;
+    color: #eeeeee;
+    padding: 8px 8px 8px 8px;
+    transition: all 1s ease;
+}
+.mr-menu a:hover {
+    background-color: #0fa1e3;
+    color:black;
+    border-radius:5px;
+    
+}
+/* mr menu search */
+.search {
+width:260px;
+float:left;
+border:0px;
+padding:5px;
+}
+input.search:hover, input.search:focus {
+	color: #3b3b3b;
+	border: 0px solid #36a2d2;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+}
+.mr-menu .s-button {
+	background-color: #0fa1e3;
+	float:right;
+	border:0px;
+	padding:4px;
+}
+input.s-button:hover, input.s-button:focus {
+	color: #3b3b3b;
+	border: 0px solid #36a2d2;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+}
+/* ebooks list */
+.listing {
+	font-family: 'Arial', serif;
+	background-color:#ffffff;
+	border-radius:5px;
+	padding: 2px;
+	margin-bottom: 0px;
+	color: #404040;
+}
+.listing p{
+	transition: all 2s ease;
+	padding: 5px;
+}
+.listing:hover p:hover {
+	box-shadow: 0px 0px 5px 0px gray;
+	border-radius:0px;
+	border: 0px solid black;
+	padding: 5px;
+
+}
+.listing .dlbutton {
+    visibility: hidden;
+    float:right;
+
+}
+.listing p:hover .dlbutton {
+	float:right;
+	visibility: visible;
+	background-color: #0fa1e3;
+    color:white;
+    width:80px;
+    height:auto;
+    border: 0px solid black;
+    font-family: 'Verdana', serif;
+    cursor:pointer;
+    -webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+
+} 
+.listing small{
+	font-family: 'Arial', serif;
+    font-size: 12px;
+    color: gray;
+}
+/*set style paginasi yang akhirnya gak kepake */
+.paginasi {
+	background-color: #ffffff;
+	color:black;
+	padding: 2px;
+	border-radius: 5px;
+	width: auto;
+}
+.paginasi a {
+	color:black;
+    
+}
+/*mencoba responsive*/
+@media (max-width:767px){
+body {
+	width:100%;
+	margin:0px;
+	padding:0px;
+}
+.wrapper{width:100%;}
+.mr-menu{height:auto;}
+.mr-menu li{display:block;margin-bottom:2px;}
+.wrapper .fullbody {width:100%; text-align: left;}
+.wrapper .insidebody {width: auto; text-align: ;float:left;}
+.listing {width:auto;}
+.listing p {width:auto;}
+.wrapper .fullside {width:96%; text-align: ;}
+.paginasi {width:100%;}
+}
